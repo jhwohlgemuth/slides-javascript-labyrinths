@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="Brown Bag">
+	<meta name="author" content="Jason Wohlgemuth">
+	<title>Keeping Up with the Joneses</title>
+	<!-- Font Awesome! -->
+	<link href="components/reveal.js/node_modules/reveal.js-menu/font-awesome-4.3.0/css/font-awesome.min.css?v=2" rel="stylesheet">
+	<link rel="stylesheet" href="components/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="components/reveal.js/css/theme/black.css" id="theme">
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style>
+		@font-face {
+		    font-family: 'MK British Writing';
+		    src: url('lib/font/mk-british-writing.ttf') format('truetype');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		span.es {
+			font-weight: bold;
+			color: #333;
+			background-color: yellow;
+		}
+		span.fancy {
+			font-family: 'MK British Writing';
+			font-weight: normal;
+			opacity: 0.8;
+			text-transform: lowercase;
+			position: relative;
+			top: -0.1em;
+		}
+	</style>
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? './components/reveal.js/css/print/pdf.css' : './components/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+
+	<div class="reveal">
+	<div class="slides">
+		<section id="title" data-background-video="img/giphy.mp4" data-background-video-loop=true>
+			<h3><span class="fancy">The</span> FOUR Labyrinths <span class="fancy"><span>o</span><span>f</span></span> JavaScript</h3>
+			<p>(adapted from <i>Clojure for the Brave and True</i>)</p>
+		</section>
+		<section id="intro" data-markdown data-menu-title="Introduction" data-transition="convex">
+			<script type="text/template">
+				## Who Am I?
+				##### Jason Wohlgemuth
+				<img src="img/profile.jpg" class="img-circle img-responsive img-center profile" />
+				<br /> [
+				<i class="fa fa-twitter" aria-hidden="true"></i>/@jhwohlgemuth](https://twitter.com/@jhwohlgemuth)&nbsp;&nbsp;&nbsp;[<i class="fa fa-github" aria-hidden="true"></i>/jhwohlgemuth](https://github.com/jhwohlgemuth)<br />
+			</script>
+		</section>
+		<section>
+    <section id="overview" data-background-image="img/overview.png" data-background-size="cover" data-menu-title="Overview">
+        <h2>Overview</h2>
+    </section>
+    <section id="four-labyrinths">
+        <h2><span class="fancy">The</span> Four Labyrinths</h2>
+        <ol>
+            <li class=" fade-up">The Fires of Functional Programming</li>
+            <li class=" fade-up">The Trials of Tooling</li>
+            <li class=" fade-up">The Obstacles of Organization</li>
+            <li class=" fade-up">The Tribulations of Testing</li>
+        </ol>
+    </section>
+</section>
+
+		<section data-menu-title="The Fires of Functional Programming">
+    <section id="fires-of-functional-programming" data-background-image="img/fires.jpg" data-menu-title="The Fires of Functional Programming">
+        <h2><span class="fancy">The</span> Fir<span class="es">ES</span> <span class="fancy"><span>o</span><span>f</span></span> Functional Programming</h2>
+    </section>
+    <section id="three-tees-of-fp">
+        <h2>The 3 "T"s of Functional Programming (3TFP)</h2>
+    </section>
+</section>
+
+		<section data-menu-title="The Trials of Tooling">
+    <section id="trials-of-tooling" data-background-image="img/trials.jpg">
+        <h2><span class="fancy">The</span> Trials <span class="fancy"><span>o</span><span>f</span></span> Tooling</h2>
+    </section>
+    <section tagcloud bw data-menu-title="Tooling tag cloud">
+        Grunt
+        Webpack
+        Gulp
+        Node.js
+        JS
+        ECMAScript
+        Browserify
+        npm
+        Babel
+        babel-preset-env
+        Jest
+        Jasmine
+        Mocha
+        chai
+        Sinon.js
+        markdown
+        Sass
+        less.js
+        PostCSS
+        ES6
+        ESLint
+        Prettier
+        browser-sync
+        karma
+        stylelint
+        cssnext
+        brunch
+        Puppeteer
+        PhantomJS
+        SlimerJS
+        a11y
+        ava
+        autoprefixer
+        casper.js
+        nightwatch
+        Rollup
+    </section>
+</section>
+
+		<section data-menu-title="The Obstacles of Organization">
+    <section id="obstacles-of-organization" data-background-image="img/obstacles.jpg" data-menu-title="The Obstacles of Organization">
+        <h2><span class="fancy">The</span> Obstacl<span class="es">ES</span> <span class="fancy"><span>o</span><span>f</span></span> Orgranization</h2>
+    </section>
+</section>
+
+		<section data-menu-title="The Tribulations of Testing">
+    <section id="tribulations-of-testing" data-background-image="img/tribulations.jpg">
+        <h2><span class="fancy">The</span> Tribulations <span class="fancy"><span>o</span><span>f</span></span> T<span class="es">es</span>ting</h2>
+    </section>
+</section>
+
+		<section id="references" data-background="img/web-surfing-time.gif">
+			<h3>References</h3>
+			<div style="padding:20px;background-color:rgba(0,0,0,0.8);border-radius:20px;">
+				<ul>
+					<li><a href="url">link</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
+</div>
+
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="components/reveal.js/js/reveal.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			fragments: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			slideNumber: 'c/t',
+			// Optional reveal.js plugins
+			menu: {
+				themes: false,
+				transitions: false,
+				markers: true,
+				loadIcons: false
+			},
+			chalkboard: {
+				// theme: 'whiteboard',
+				// toggleChalkboardButton: false,
+				color: [ '#f7df1e', 'rgba(255,255,255,0.5)' ],
+				toggleChalkboardButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
+				toggleNotesButton: { left: "91px", bottom: "30px", top: "auto", right: "auto" },
+			},
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				// Interpret Markdown in <section> elements
+        		{ src: './components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        		{ src: './components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: './components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: './components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: './components/reveal.js/plugin/notes/notes.js', async: true },
+				{ src: './components/reveal.js/plugin/chalkboard/chalkboard.js' },
+				{ src: './components/reveal.js/plugin/tagcloud/tagcloud.js', async: true},
+				{ src: './components/reveal.js/node_modules/reveal.js-menu/menu.js' }
+			],
+			keyboard: {
+			    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+			    66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+			    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+			     8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+			    68: function() { RevealChalkboard.download() }	// downlad recorded chalkboard drawing when 'd' is pressed
+			}
+		});
+
+	</script>
+    <!-- Socket.io client-->
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script>
+            (function(){
+              Reveal.initialize({
+                history: true
+              });
+              var proto = window.location.protocol;
+              var h = window.location.host;
+              var val = proto+'//'+h;
+              console.log(val);
+              var socket = io.connect(val);
+              socket.on('slidechanged', function (data) {
+                Reveal.slide(data.indexh, data.indexv, data.indexf);
+              });
+            })();
+        </script>
+</body>
+</html>
+
