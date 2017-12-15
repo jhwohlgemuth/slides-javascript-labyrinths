@@ -2,7 +2,110 @@
     <section id="fires-of-functional-programming" data-background-image="img/fires.jpg" data-menu-title="The Fires of Functional Programming">
         <h2><span class="fancy">The</span> Fir<span class="es">ES</span> <span class="fancy"><span>o</span><span>f</span></span> Functional Programming</h2>
     </section>
-    <section id="three-tees-of-fp">
-        <h2>The 3 "T"s of Functional Programming (3TFP)</h2>
+    <section id="what-is-fp" style="padding-left: 23%;" data-menu-title="What is FP?">
+        <blockquote class="twitter-tweet" data-lang="en">
+            <p lang="en" dir="ltr">OO makes code understandable by encapsulating moving parts.  FP makes code understandable by minimizing moving parts.</p>&mdash; Michael Feathers (@mfeathers) <a href="https://twitter.com/mfeathers/status/29581296216?ref_src=twsrc%5Etfw">November 3, 2010</a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </section>
+    <section id="modularity" style="margin: 0 23%;" data-menu-title="Modularity">
+         <div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/dcJpVAvYGPYFZ1ntlGckfg/149273556583" data-did="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+             <a href="https://jhwohlgemuth.tumblr.com/post/149273556583">https://jhwohlgemuth.tumblr.com/post/149273556583</a>
+         </div>
+         <script async src="https://assets.tumblr.com/post.js"></script>
+    </section>
+    <section id="composability" data-menu-title="Build functions with functions">
+        <h2>composability</h2>
+        <blockquote>
+            <i>build functions with functions</i>
+        </blockquote>
+    </section>
+    <section id="immutability" data-menu-title="Favor immutable patterns">
+        <h2>immutability</h2>
+        <blockquote>
+            <i>favor immutable patterns</i>
+        </blockquote>
+    </section>
+    <section id="minimize-mutation-strings" data-menu-title="Minimize mutation (stings)">
+        <h2>Minimize Mutation</h2>
+        <p>use string interpolation</p>
+        <pre><code class="js">
+    const name = 'Carl';
+        </code></pre>
+        <div class="fragment">
+            <pre><code class="js">
+    // WITHOUT string interpolation and WITH mutation
+    let greeting = 'Hello';// const CANNOT be used here!
+    greeting += ' ';
+    greeting += name;
+    greeting += '!'// "Hello Carl!"
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <pre><code class="js">
+    // WITH string interpolation and NO mutation
+    const greeting = `hello ${name}!`;
+            </code></pre>
+        </div>
+    </section>
+    <section id="minimize-mutation-object-attributes" data-menu-title="Minimize mutation">
+        <h2>Minimize Mutation</h2>
+        <p>group object property assignment operations</p>
+        <div>
+            <pre><code class="js">
+    // object declaration followed by property assignments
+    const book = {};
+    o.title = 'The Dream Machine';
+    o.author = 'M. Waldrop';
+            </code></pre>
+        </div>
+        <div>
+            <pre><code class="js">
+    // object declaration combined with property assignments
+    const book = {
+        title: 'The Dream Machine',
+        author: 'M. Waldrop'
+    };
+            </code></pre>
+        </div>
+    </section>
+    <section id="isolate-mutation" data-menu-title="Isolate mutation">
+        <h2>Isolate Mutation</h2>
+        <p>...when you cannot avoid mutation</p>
+        <pre><code class="js">
+    const {assign} = Object;
+    const powerLevel = 9001;
+    const person = {powerLevel};
+        </code></pre>
+        <div>
+            <pre><code class="js">
+    // multiple property assignment operations
+    person.name = 'Kakarot';
+    person.race = 'Saiyan';
+            </code></pre>
+        </div>
+        <div>
+            <pre><code class="js">
+    // single property assignment operation
+    const features = {
+        name: 'Kakarot',
+        race: 'Saiyan'
+    };
+    assign(person, features);
+            </code></pre>
+        </div>
+    </section>
+    <section id="purity" data-menu-title="Balance arity and state">
+        <h2>purity</h2>
+        <blockquote>
+            <i>balance arity and state</i>
+        </blockquote>
+    </section>
+    <section id="three-tees-of-functional-programming" data-menu-title="3TFP">
+        <h3>composabili<span class="fragment highlight-blue">ty</span></h3>
+        <h3>immutabili<span class="fragment highlight-blue">ty</span></h3>
+        <h3>puri<span class="fragment highlight-blue">ty</span></h3>
+        <br/>
+        <h3 class="fragment">3 "T"s of Functional Programming ("3TFP")</h2>
     </section>
 </section>
