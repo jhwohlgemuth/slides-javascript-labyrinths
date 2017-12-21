@@ -14,19 +14,129 @@
          </div>
          <script async src="https://assets.tumblr.com/post.js"></script>
     </section>
+    <section id="three-tees-of-functional-programming" data-menu-title="3TFP">
+        <h3>composabili<span class="fragment highlight-blue">ty</span></h3>
+        <h3>immutabili<span class="fragment highlight-blue">ty</span></h3>
+        <h3>puri<span class="fragment highlight-blue">ty</span></h3>
+        <br/>
+        <h3 class="fragment">3 "T"s of Functional Programming ("3TFP")</h2>
+    </section>
     <section id="composability" data-menu-title="Build functions with functions">
         <h2>composability</h2>
         <blockquote>
             <i>build functions with functions</i>
         </blockquote>
+        <div>
+            <pre><code class="js">
+    // create functions
+    const trimStr = str => str.trim();
+    const toUpper = str => str.toUpperCase();
+
+    // ...and compose!
+    toUpper(trimStr('  hello world  '));// HELLO WORLD
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <pre><code class="js">
+    // libraries like lodash can provide functions for you
+    const {flow, toUpper, trim} = require('lodash');
+    const loud = flow(trim, toUpper);
+
+    // code code code
+
+    loud('  hello world  ');// HELLO WORLD
+            </code></pre>
+        </div>
     </section>
-    <section id="immutability" data-menu-title="Favor immutable patterns">
+    <section id="composability-example" data-menu-title="Minimize moving parts">
+        <h2>composability</h2>
+        <blockquote>
+            <i>minimize moving parts</i>
+        </blockquote>
+        <pre><code class="js">
+    function add(a, b) {return a + b;}
+        </code></pre>
+        <div class="fragment">
+            <pre><code class="js">
+    const thisSum = add(9000, 1);// 9001
+    const thatSum = add(9000, 2);// 9002
+    const someSum = add(9000, 3);// 9003
+    // what if you need to change 9000?
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <pre><code class="js">
+    // add9000 encapsulates 9000 and has fewer parameters
+    const add9000 = num => add(9000, num);
+    // code code code
+    const thisSum = add9000(1);// 9001
+    const thatSum = add9000(2);// 9002
+    const someSum = add9000(3);// 9003
+            </code></pre>
+        </div>
+    </section>
+    <section id="composability-metaphor-quiver" data-menu-title="Hawkeye's quiver" data-background-image="img/quiver.png"></section>
+    <section id="composability-metaphor-arrows" data-menu-title="Hawkeye's arrows" data-background-image="img/arrows.png"></section>
+    <section id="immutability-arrays" data-menu-title="Favor immutable patterns (concat)">
         <h2>immutability</h2>
         <blockquote>
-            <i>favor immutable patterns</i>
+            <i>favor immutable patterns — <code>concat</code></i>
         </blockquote>
+        <div class="fragment">
+            <pre><code class="js">
+    // LESS FP: mutation with push
+    const hobbits = [];
+    hobbits.push('Bilbo');
+    hobbits.push('Frodo');
+    // code code code
+    hobbits.push('Samwise');
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <pre><code class="js">
+    // MORE FP: avoid mutation with concat
+    const baggins = ['Bilbo', 'Frodo'];
+    // code code code
+    const hobbits = baggins.concat('Samwise');
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <pre><code class="js">
+    // or with ES6 spread operator
+    const hobbits = [...baggins, 'Samwise'];
+            </code></pre>
+        </div>
     </section>
-    <section id="minimize-mutation-strings" data-menu-title="Minimize mutation (stings)">
+    <section id="immutability-loops" data-menu-title="Favor immutable patterns (map)">
+        <h2>immutability</h2>
+        <blockquote>
+            <i>favor immutable patterns — <code>map</code></i>
+        </blockquote>
+        <pre><code class="js">
+    let numbers = [1, 2, 3, 4, 5];
+        </code></pre>
+        <div class="fragment">
+            <pre><code class="js">
+    // LESS FP: imperative mutation with for
+    const squared = [];
+    for (let i = 0; i < numbers.length; i++) {
+        squared[i] = numbers[i] ** 2;
+    }
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <pre><code class="js">
+    // MORE FP: functional immutability with map
+    const squared = numbers.map(num => num ** 2);
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <pre><code class="js">
+    // squared === [1, 4, 9, 16, 25]
+            </code></pre>
+        </div>
+    </section>
+    <section id="minimize-mutation-strings" data-menu-title="Minimize mutation (strings)">
         <h2>Minimize Mutation</h2>
         <p>use string interpolation</p>
         <pre><code class="js">
@@ -34,7 +144,7 @@
         </code></pre>
         <div class="fragment">
             <pre><code class="js">
-    // WITHOUT string interpolation and WITH mutation
+    // LESS FP: mutation and no string interpolation
     let greeting = 'Hello';// const CANNOT be used here!
     greeting += ' ';
     greeting += name;
@@ -43,24 +153,26 @@
         </div>
         <div class="fragment">
             <pre><code class="js">
-    // WITH string interpolation and NO mutation
+    // MORE FP: no mutation with string interpolation
     const greeting = `hello ${name}!`;
             </code></pre>
         </div>
     </section>
-    <section id="minimize-mutation-object-attributes" data-menu-title="Minimize mutation">
+    <section id="minimize-mutation-object-attributes" data-menu-title="Minimize mutation (objects)">
         <h2>Minimize Mutation</h2>
         <p>group object property assignment operations</p>
-        <div>
+        <div class="fragment">
             <pre><code class="js">
+    // LESS FP
     // object declaration followed by property assignments
     const book = {};
     o.title = 'The Dream Machine';
     o.author = 'M. Waldrop';
             </code></pre>
         </div>
-        <div>
+        <div class="fragment">
             <pre><code class="js">
+    // MORE FP
     // object declaration combined with property assignments
     const book = {
         title: 'The Dream Machine',
@@ -77,16 +189,16 @@
     const powerLevel = 9001;
     const person = {powerLevel};
         </code></pre>
-        <div>
+        <div class="fragment">
             <pre><code class="js">
-    // multiple property assignment operations
+    // LESS FP: multiple property assignment operations
     person.name = 'Kakarot';
     person.race = 'Saiyan';
             </code></pre>
         </div>
-        <div>
+        <div class="fragment">
             <pre><code class="js">
-    // single property assignment operation
+    // MORE FP: single property assignment operation
     const features = {
         name: 'Kakarot',
         race: 'Saiyan'
@@ -95,23 +207,53 @@
             </code></pre>
         </div>
     </section>
+    <section id="immutability-performance" data-menu-title="Immutability performance">
+        <h2>immutability</h2>
+        <blockquote>
+            <i>Thoughts on performance</i>
+        </blockquote>
+        <ul>
+            <li class="fragment">"Interface vs Implementation"</li>
+            <li class="fragment">Browser interpreters get faster every day</li>
+            <li class="fragment">Is "push" really the bottle-neck for your app?</li>
+            <li class="fragment">Find balance between <i>development time</i> and <i>runtime</i></li>
+        </ol>
+    </section>
     <section id="purity" data-menu-title="Balance arity and state">
         <h2>purity</h2>
         <blockquote>
             <i>balance arity and state</i>
         </blockquote>
+        <pre><code class="js">
+    let foo = () => console.log('bar');
+    let obj = {foo};
+        </code></pre>
+        <div class="fragment">
+            <pre><code class="js">
+    // NOT PURE (obj is a "free variable")
+    let triggerFooNotPure = () => obj.foo();
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <pre><code class="js">
+    // PURE (no free variables)
+    let triggerFooPure = obj => obj.foo();
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <pre><code class="js">
+    // pure functions generally have higher "arity"
+    triggerFooNotPure();// 0-ary
+    triggerFooPure(obj);// 1-ary
+            </code></pre>
+        </div>
     </section>
-    <section id="three-tees-of-functional-programming" data-menu-title="3TFP">
-        <h3>composabili<span class="fragment highlight-blue">ty</span></h3>
-        <h3>immutabili<span class="fragment highlight-blue">ty</span></h3>
-        <h3>puri<span class="fragment highlight-blue">ty</span></h3>
-        <br/>
-        <h3 class="fragment">3 "T"s of Functional Programming ("3TFP")</h2>
-    </section>
-    <section id="js-fp-cheatsheet" style="padding-left: 23%;" data-menu-title="JS Functional Programming Cheatsheet">
-        <blockquote class="twitter-tweet" data-lang="en">
-            <p lang="en" dir="ltr">JS Functional Programming Array.prototype cheat sheet <a href="https://t.co/diGW4FaOso">pic.twitter.com/diGW4FaOso</a></p>&mdash; Jason Wohlgemuth (@jhwohlgemuth) <a href="https://twitter.com/jhwohlgemuth/status/862812187282296833?ref_src=twsrc%5Etfw">May 11, 2017</a>
-        </blockquote>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <section id="js-fp-cheatsheet" style="padding-left: 23%;" data-background-image="img/dangerous-to-go-alone.jpg" data-menu-title="JS Functional Programming Cheatsheet">
+        <div class="fragment">
+            <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">JS Functional Programming Array.prototype cheat sheet <a href="https://t.co/diGW4FaOso">pic.twitter.com/diGW4FaOso</a></p>&mdash; Jason Wohlgemuth (@jhwohlgemuth) <a href="https://twitter.com/jhwohlgemuth/status/862812187282296833?ref_src=twsrc%5Etfw">May 11, 2017</a>
+            </blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
     </section>
 </section>

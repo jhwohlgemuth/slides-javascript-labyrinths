@@ -2,7 +2,7 @@
     <section id="trials-of-tooling" data-background-image="img/trials.jpg">
         <h2><span class="fancy">The</span> Trials <span class="fancy"><span>o</span><span>f</span></span> Tooling</h2>
     </section>
-    <section tagcloud bw data-menu-title="Tooling tag cloud" data-transition="zoom">
+    <section id="tool-tagcloud" tagcloud bw data-menu-title="Tooling tag cloud" data-transition="zoom">
         Grunt
         flow
         Webpack
@@ -40,5 +40,87 @@
         casper.js
         nightwatch
         Rollup
+    </section>
+    <section id="choices" data-background-image="img/choices.gif" data-menu-title="Choices"></section>
+    <section id="analyze" data-menu-title="Analyze">
+        <h3>Cure for Analysis Paralysis</h3>
+        <table>
+            <tr>
+                <td>JavaScript</td>
+                <td class="fragment"> → <a href="https://eslint.org/">ESLint</a></td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td class="fragment"> → <a href="https://stylelint.io/">Stylelint</a></td>
+            </tr>
+            <tr>
+                <td>HTML</td>
+                <td class="fragment"> → <a href="http://htmlhint.com/">HTMLHint</a></td>
+            </tr>
+            <tr>
+                <td>JSON</td>
+                <td class="fragment"> → <a href="https://github.com/zaach/jsonlint">jsonlint</a></td>
+            </tr>
+            <tr>
+                <td>a11y (url)</td>
+                <td class="fragment"> → <a href="https://github.com/pa11y/pa11y">pa11y</a> or <a href="https://github.com/addyosmani/a11y">a11y</a></td>
+            </tr>
+            <tr>
+                <td>a11y (any)</td>
+                <td class="fragment"> → <a href="https://github.com/yargalot/AccessSniff">AccessSniff</a></td>
+            </tr>
+        </table>
+    </section>
+    <section id="transpile" data-menu-title="Transpile"></section>
+    <section id="optimize" data-menu-title="Optimize"></section>
+    <section id="getting-started" data-menu-title="Getting started">
+        <h3>Getting Started — 3 Easy Steps</h3>
+        <div class="fragment fade-up">
+            <p style="text-align:left;padding-left:1em;">1. <b>Install</b> tool</p>
+            <pre><code class="bash">
+    npm install eslint --save-dev
+            </code></pre>
+        </div>
+        <div class="fragment fade-up">
+            <p style="text-align:left;padding-left:1em;">2. <b>Configure</b> tool (add to workflow)</p>
+            <pre><code class="json">
+    {
+        "scripts": {
+            "lint": "eslint ./src/*.js"
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="fragment fade-up">
+            <p style="text-align:left;padding-left:1em;">3. <b>Use</b> tool</p>
+            <pre><code class="bash">
+    npm run lint
+            </code></pre>
+        </div>
+    </section>
+    <section id="global-vs-local" data-menu-title="Install: global vs. local">
+        <div>
+            <p style="text-align:left;padding-left:1em;">Global — Use CLI</p>
+            <pre><code class="bash">
+    >> npm install eslint --global
+    >> eslint ./src/*.js --config /path/to/.eslintrc.js
+            </code></pre>
+        </div>
+        <div>
+            <p style="text-align:left;padding-left:1em;">Local (project) — Use npm scripts</p>
+            <pre><code class="bash">
+    >> npm install eslint --save-dev
+            </code></pre>
+            <pre><code class="json">
+    {
+        "scripts": {
+            "lint": "eslint ./src/*.js"
+        }
+    }
+            </code></pre>
+            <pre><code class="bash">
+    >> npm run lint
+            </code></pre>
+        </div>
     </section>
 </section>
