@@ -8,12 +8,6 @@
         </blockquote>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </section>
-    <section id="modularity" style="margin: 0 23%;" data-menu-title="Modularity">
-         <div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/dcJpVAvYGPYFZ1ntlGckfg/149273556583" data-did="da39a3ee5e6b4b0d3255bfef95601890afd80709">
-             <a href="https://jhwohlgemuth.tumblr.com/post/149273556583">https://jhwohlgemuth.tumblr.com/post/149273556583</a>
-         </div>
-         <script async src="https://assets.tumblr.com/post.js"></script>
-    </section>
     <section id="three-tees-of-functional-programming" data-menu-title="3TFP">
         <h3>composabili<span class="fragment highlight-blue">ty</span></h3>
         <h3>immutabili<span class="fragment highlight-blue">ty</span></h3>
@@ -247,6 +241,18 @@
     triggerFooPure(obj);// 1-ary
             </code></pre>
         </div>
+    </section>
+    <section id="one-more-thing">
+        <h3>One more thing...</h3>
+        <p>Don't use <code>filter</code> when you should use <code>forEach</code></p>
+        <pre><code class="js">
+    // BAD
+    [1, 2, 3, 4, 5].filter(val => console.log(val));
+        </code></pre>
+        <pre><code class="js">
+    // GOOD
+    [1, 2, 3, 4, 5].forEach(val => console.log(val));
+        </code></pre>
     </section>
     <section id="js-fp-cheatsheet" style="padding-left: 23%;" data-background-image="img/dangerous-to-go-alone.jpg" data-menu-title="JS Functional Programming Cheatsheet">
         <div class="fragment">

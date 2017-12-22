@@ -2,46 +2,8 @@
     <section id="trials-of-tooling" data-background-image="img/trials.jpg">
         <h2><span class="fancy">The</span> Trials <span class="fancy"><span>o</span><span>f</span></span> Tooling</h2>
     </section>
-    <section id="tool-tagcloud" tagcloud bw data-menu-title="Tooling tag cloud" data-transition="zoom">
-        Grunt
-        flow
-        Webpack
-        Gulp
-        Node.js
-        JS
-        ECMAScript
-        Browserify
-        npm
-        Babel
-        babel-preset-env
-        Jest
-        Jasmine
-        Mocha
-        chai
-        Sinon.js
-        markdown
-        Sass
-        less.js
-        PostCSS
-        ES6
-        ESLint
-        Prettier
-        browser-sync
-        karma
-        stylelint
-        cssnext
-        brunch
-        Puppeteer
-        PhantomJS
-        SlimerJS
-        a11y
-        ava
-        autoprefixer
-        casper.js
-        nightwatch
-        Rollup
-    </section>
     <section id="choices" data-background-image="img/choices.gif" data-menu-title="Choices"></section>
+    <section id="skip-the-details" data-menu-title="Skip the details" data-background-video="img/quick.mp4"></section>
     <section id="analyze" data-menu-title="Analyze">
         <h3>Analyze</h3>
         <p>"Lint"</p>
@@ -74,7 +36,7 @@
     </section>
     <section id="compile" data-menu-title="Compile">
         <h3>Compile</h3>
-        <p>Precompile and transpile</p>
+        <p>Precompile for runtime and transpile for developers</p>
         <table>
             <tr>
                 <td><i>trans</i></td>
@@ -103,7 +65,37 @@
             </tr>
         </table>
     </section>
-    <section id="optimize" data-menu-title="Optimize"></section>
+    <section id="optimize" data-menu-title="Optimize">
+        <h3>Optimize</h3>
+        <p>Reduce size and increase performance</p>
+        <table>
+            <tr>
+                <td><i>min</i></td>
+                <td>ES5</td>
+                <td class="fragment"> → <a href="https://www.npmjs.com/package/uglify-js">uglify-js</a></td>
+            </tr>
+            <tr>
+                <td><i>min</i></td>
+                <td>ES6+</td>
+                <td class="fragment"> → <a href="https://github.com/babel/minify">babel-minify</a> or <a href="https://www.npmjs.com/package/uglify-es">uglify-es</a></td>
+            </tr>
+            <tr>
+                <td><i>min</i></td>
+                <td>CSS</td>
+                <td class="fragment"> → <a href="http://cssnano.co/">cssnano</a> (PostCSS)</td>
+            </tr>
+            <tr>
+                <td><i>min</i></td>
+                <td>HTML</td>
+                <td class="fragment"> → <a href="https://github.com/kangax/html-minifier">html-minifier</a></td>
+            </tr>
+            <tr>
+                <td><i>perf</i></td>
+                <td>JS</td>
+                <td class="fragment"> → <a href="https://benchmarkjs.com/">Benchmark.js</a></td>
+            </tr>
+        </table>
+    </section>
     <section id="getting-started" data-menu-title="Getting started">
         <h3>Getting Started — 3 Easy Steps</h3>
         <div class="fragment fade-up">
@@ -129,7 +121,7 @@
             </code></pre>
         </div>
     </section>
-    <section id="global-vs-local" data-menu-title="Install: global vs. local">
+    <section id="global-vs-local" data-menu-title="Install — global vs. local">
         <div>
             <p style="text-align:left;padding-left:1em;">Global — Use CLI</p>
             <pre><code class="bash">
@@ -153,5 +145,85 @@
     >> npm run lint
             </code></pre>
         </div>
+    </section>
+    <section id="spotlight-babel" data-menu-title="Spotlight — Babel">
+        <img src="img/babel.png" class="title-image" alt="Babel" height="200">
+        <p>Use <i>tomorrow's</i> JavaScript <i><b>today!</b></i></p>
+        <div>
+            <p style="text-align:left;padding-left:1em;">ES6+ goes in...</p>
+            <pre><code class="js">
+    const squared = val => val ** 2;
+            </code></pre>
+        </div>
+        <div>
+            <p style="text-align:left;padding-left:1em;">...and ES5 comes out!</p>
+            <pre><code class="js">
+    "use strict";
+
+    var squared = function squared(val) {
+      return Math.pow(val, 2);
+    };
+            </code></pre>
+        </div>
+    </section>
+    <section id="babel-configure" data-menu-title="Babel — Configure">
+        <img src="img/babel.png" class="title-image" alt="Babel" height="200">
+        <p>Configuration</p>
+        <div>
+            <p style="text-align:left;padding-left:1em;">Create <code>.babelrc</code> file...</p>
+            <pre><code class="json">
+    {
+      "presets": ["env", "minify"],
+    }
+            </code></pre>
+        </div>
+        <div>
+            <p style="text-align:left;padding-left:1em;">...OR add to <code>package.json</code></p>
+            <pre><code class="json">
+    {
+      "babel": {
+        "presets": ["env", "minify"]
+    }
+            </code></pre>
+        </div>
+    </section>
+    <section id="babel-usage" data-menu-title="Babel — Use">
+        <img src="img/babel.png" class="title-image" alt="Babel" height="200">
+        <p>Usage — Choose your "vehicle"</p>
+        <table>
+            <tr>
+                <td>CLI</td>
+                <td class="fragment"> → <a href="https://babeljs.io/docs/usage/cli/">babel-cli</a></td>
+            </tr>
+            <tr>
+                <td>Browserify</td>
+                <td class="fragment"> → <a href="https://github.com/babel/babelify">babelify</a></td>
+            </tr>
+            <tr>
+                <td>Webpack</td>
+                <td class="fragment"> → <a href="https://github.com/babel/babel-loader">babel-loader</a></td>
+            </tr>
+            <tr>
+                <td>Grunt</td>
+                <td class="fragment"> → <a href="https://github.com/babel/grunt-babel">grunt-babel</a></td>
+            </tr>
+            <tr>
+                <td>Gulp</td>
+                <td class="fragment"> → <a href="https://github.com/babel/gulp-babel">gulp-babel</a></td>
+            </tr>
+        </table>
+    </section>
+    <section id="spotlight-postcss" data-menu-title="Spotlight — PostCSS">
+        <img src="img/postcss.png" class="title-image" style="margin-bottom:0;" alt="PostCSS" height="150">
+        <h3>PostCSS</h3>
+        <p>A tool for transforming CSS with JavaScript</p>
+        <ul>
+            <li class="fragment">Use <i>tomorrow's</i> CSS <i><b>today</b></i> with <a href="http://cssnext.io/">postcss-cssnext</a></li>
+            <li class="fragment">Add vendor prefixes <i>auto-magically</i> with <a href="https://github.com/postcss/autoprefixer">autoprefixer</a></li>
+            <li class="fragment">Lint your stylesheets with <a href="https://stylelint.io/user-guide/postcss-plugin/">stylint</a></li>
+            <li class="fragment">Minimize your stylesheets with <a href="http://cssnano.co/">cssnano</a></li>
+            <li class="fragment">Find and fix CSS syntax errors with <a href="https://github.com/postcss/postcss-safe-parser">postcss-safe-parser</a></li>
+            <li class="fragment">And much much more!</li>
+        </ul>
     </section>
 </section>
