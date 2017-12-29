@@ -2,49 +2,23 @@
     <section id="obstacles-of-organization" data-background-image="img/obstacles.jpg" data-menu-title="The Obstacles of Organization">
         <h2><span class="fancy">The</span> Obstacl<span class="es">ES</span> <span class="fancy"><span>o</span><span>f</span></span> Organization</h2>
     </section>
-    <section id="organization-overview">
+    <section id="organization-overview-formats" data-menu-title="Section: Formats">
         <h3>
             <span class="fragment highlight-current-blue">module format</span>
-            <span class="fragment highlight-current-blue"> — module bundler</span>
+            <span> — module bundler</span>
         </h3>
     </section>
-    <section id="module-formats" data-menu-title="Module formats">
-        <div class="">
-            <p style="text-align:left;">Asynchronous Module Definition (AMD)</p>
-            <pre><code class="js">
-    define((require, exports, module) => {
-        const {add, partial} = require('lodash');
-        module.exports = partial(add, 1);
-    });
-            </code></pre>
-        </div>
-        <div class="">
-            <p style="text-align:left;">CommonJS (CJS)</p>
-            <pre><code class="js">
-    const {add, partial} = require('lodash');
-    module.exports = partial(add, 1);
-            </code></pre>
-        </div>
-        <div class="">
-            <p style="text-align:left;">ESM</p>
-            <pre><code class="js">
-    import {add, partial} from 'lodash';
-    export partial(add, 1);
-            </code></pre>
-        </div>
-    </section>
-    <section id="modules-amd" data-menu-title="Modules — AMD">
-        <img src="img/requirejs.png" class="title-image" alt="RequireJS" height="200">
-        <h3>AMD</h3>
+    <section id="module-format-listing" data-menu-title="Format listing">
+        <h3>Module Formats</h3>
         <ul>
-            <li><span class="good"><b>No compile step</b></span></li>
-            <li><span class="bad">Most boilerplate</span></li>
-            <li><span class="bad">Cannot use Jest</span></li>
-            <li><a href="https://github.com/requirejs/requirejs/wiki/Plugins">Extended with plugins</a></li>
-            <li>optimize/bundle → <a href="http://requirejs.org/docs/optimization.html">r.js</a></li>
+            <li class="fragment">CommonJS (CJS)</li>
+            <li class="fragment">Asynchronous Module Definition (AMD)</li>
+            <li class="fragment">Universal Module Definition (UMD)</li>
+            <li class="fragment">ECMAScript Module (ESM)</li>
+            <li class="fragment">WebAssembly Module (WASM)</li>
         </ul>
     </section>
-    <section id="modules-commonjs" data-menu-title="Modules — CommonJS">
+    <section id="modules-commonjs" data-menu-title="Format — CommonJS">
         <img src="img/commonjs.png" class="title-image" style="margin-bottom:1em;" alt="CommonJS" width="400">
         <br/>
         <ul>
@@ -55,7 +29,148 @@
             <li><span>optimize/bundle → multiple</span></li>
         </ul>
     </section>
-    <section id="modules-esm" data-menu-title="Modules — ESM">
+    <section id="modules-amd" data-menu-title="Format — AMD">
+        <img src="img/requirejs.png" class="title-image" alt="RequireJS" height="200">
+        <h3>AMD</h3>
+        <ul>
+            <li><span class="good"><b>No compile step</b></span></li>
+            <li><span class="bad">Most boilerplate</span></li>
+            <li><span class="bad">Cannot use Jest</span></li>
+            <li><a href="https://github.com/requirejs/requirejs/wiki/Plugins">Extended with plugins</a></li>
+            <li>optimize/bundle → <a href="http://requirejs.org/docs/optimization.html">r.js</a></li>
+        </ul>
+    </section>
+    <section id="modules-esm" data-menu-title="Format — ESM">
         <h3>ESM</h3>
+        <br/>
+        <ul>
+            <li><span class="bad">Limited support</span></li>
+            <li><span class="good"><b>No boilerplate</b></span></li>
+            <li><span class="good"><b>Simplified syntax</b></span></li>
+            <li><span class="good">Works with Jest</span></li>
+            <li><span>Extended with transpilation</span></li>
+            <li><span>optimize/bundle → multiple</span></li>
+        </ul>
+    </section>
+    <section id="module-formats-details" data-menu-title="Module formats (code)">
+        <div class="">
+            <p style="text-align:left;">AMD → <span class="good">browser</span></p>
+            <pre><code class="js">
+    define((require, exports, module) => {
+        const {add, partial} = require('lodash');
+        module.exports = partial(add, 1);
+    });
+            </code></pre>
+        </div>
+        <div class="">
+            <p style="text-align:left;">CJS → <span class="good">Node.js</span></p>
+            <pre><code class="js">
+    const {add, partial} = require('lodash');
+    module.exports = partial(add, 1);
+            </code></pre>
+        </div>
+        <div class="">
+            <p style="text-align:left;">ESM → <span class="good">browser / Node.js</span></p>
+            <pre><code class="js">
+    import {add, partial} from 'lodash';
+    export partial(add, 1);
+            </code></pre>
+        </div>
+    </section>
+    <section id="umd">
+        <h3><a href="https://github.com/umdjs/umd">UMD</a></h3>
+        <p>Support AMD + CJS + Global</p>
+        <pre><code class="js">
+    // Module has lodash dependency and is named "foo"
+    (function(root, factory) {
+        'use strict';
+        if (typeof define === 'function' && define.amd) {
+            define(['lodash'], function(_) {
+                return (root.foo = factory(root, _));
+            });
+        } else if (typeof exports === 'object') {
+            const _ = require('lodash');
+            module.exports = factory(root, _);
+        } else {
+            root.foo = factory(root, _);
+        }
+    }(this, function(root, _) {/* module code */}));
+        </code></pre>
+    </section>
+    <section id="organization-overview-bundlers" data-menu-title="Section: Bundlers">
+        <h3>
+            <span>module format — </span>
+            <span class="fragment highlight-current-blue">module bundler</span>
+        </h3>
+    </section>
+    <section id="module-bundler-listing" data-menu-title="Bundler listing">
+        <h3>Module Bundlers</h3>
+        <span class="fragment">r.js</span> <span class="fragment">— browserify</span> <span class="fragment">— webpack</span>
+    </section>
+    <section id="bundler-rjs" data-menu-title="Bundler — r.js">
+        <h3>Module Bundler — <a style="text-transform:lowercase;" href="http://requirejs.org/docs/optimization.html">r.js</a></h3>
+        <p>Bundle Require.js AMD modules</p>
+        <table>
+            <tr>
+                <td>AMD</td>
+                <td class="fragment"> → <a href="http://requirejs.org/docs/optimization.html">r.js</a> / <a href="https://github.com/requirejs/almond">almond.js</a></td>
+            </tr>
+            <tr>
+                <td>CJS</td>
+                <td class="fragment"> → <span class="bad">nope</span></td>
+            </tr>
+            <tr>
+                <td>ESM</td>
+                <td class="fragment"> → <span class="bad">nope</span></td>
+            </tr>
+            <tr>
+                <td>WASM</td>
+                <td class="fragment"> → <span class="bad">nope</span></td>
+            </tr>
+        </table>
+    </section>
+    <section id="bundler-browserify" data-menu-title="Bundler — browserify">
+        <h3>Module Bundler — <a style="text-transform:lowercase;" href="">browserify</a></h3>
+        <p>Process modules with <a href="https://github.com/browserify/browserify/wiki/list-of-transforms">transforms</a></p>
+        <table>
+            <tr>
+                <td>AMD</td>
+                <td class="fragment"> → <a href="https://github.com/jaredhanson/deamdify">deamdify</a></td>
+            </tr>
+            <tr>
+                <td>CJS</td>
+                <td class="fragment"> → <a href="https://github.com/thlorenz/browserify-shim">browserify-shim</a></td>
+            </tr>
+            <tr>
+                <td>ESM</td>
+                <td class="fragment"> → <span class="bad">nope</span></td>
+            </tr>
+            <tr>
+                <td>WASM</td>
+                <td class="fragment"> → <a href="https://github.com/browserify/rustify">rustify</a></td>
+            </tr>
+        </table>
+    </section>
+    <section id="bundler-webpack" data-menu-title="Bundler — webpack">
+        <h3>Module Bundler — <a style="text-transform:lowercase;" href="https://webpack.js.org/">webpack</a></h3>
+        <p>Process modules with <a href="https://webpack.js.org/concepts/loaders/">loaders</a> & <a href="https://webpack.js.org/plugins/">plugins</a></p>
+        <table>
+            <tr>
+                <td>AMD</td>
+                <td class="fragment"> → <span class="good">built in</span></td>
+            </tr>
+            <tr>
+                <td>CJS</td>
+                <td class="fragment"> → <span class="good">built in</span></td>
+            </tr>
+            <tr>
+                <td>ESM</td>
+                <td class="fragment"> → <span class="good">built in</span></td>
+            </tr>
+            <tr>
+                <td>WASM</td>
+                <td class="fragment"> → <a href="https://github.com/ballercat/wasm-loader">wasm-loader</a></td>
+            </tr>
+        </table>
     </section>
 </section>
