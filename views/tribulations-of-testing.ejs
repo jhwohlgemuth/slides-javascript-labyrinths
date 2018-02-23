@@ -2,4 +2,64 @@
     <section id="tribulations-of-testing" data-background-image="img/tribulations.jpg">
         <h2><span class="fancy">The</span> Tribulations <span class="fancy"><span>o</span><span>f</span></span> T<span class="es">es</span>ting</h2>
     </section>
+    <section id="not-a-test-pyramid-talk" data-menu-title="Not another test pyramid talk" data-markdown>
+        > Not another "test pyramid" talk
+    </section>
+    <section id="test-tech-stack" class="strsetch" data-menu-title="The test tech stack">
+        <div>
+            <h3>All the things</h3>
+            <img src="img/dependencies-without-jest.png" alt="without Jest" style="border:none;background:none;box-shadow:none;" height="200">
+        </div>
+        <div class="fragment">
+            <h3>Or just Jest <a href="https://github.com/facebook/jest/issues/17#issuecomment-202143284">(no AMD)</a></h3>
+            <img src="img/jest-banner.png" alt="without Jest" style="border:none;background:none;box-shadow:none;" height="200">
+        </div>
+    </section>
+    <section id="note-on-jasmine" data-menu-title="A Note on Jasmine">
+        <h3>A Note on Jasmine</h3>
+        <p><a href="https://jasmine.github.io/">Jasmine</a> is basically:</p>
+        <ul>
+            <li>a testing framework with zero dependencies</li>
+            <li>+ <a href="https://mochajs.org/">Mocha</a> without CLI support and a weaker API</li>
+            <li>+ <a href="http://chaijs.com/">Chai</a> with limited choice and less customizability</li>
+            <li>+ <a href="http://sinonjs.org/">Sinon</a> with 90% fewer features</li>
+        </ul>
+    </section>
+    <section id="full-disclosure" data-markdown>
+        > Jest was built on Jasmine
+    </section>
+    <section id="jest-before-and-after-dependencies" class="stretch">
+        <div>
+            <h4>Mocha + Chai + Sinon + Istanbul</h4>
+            <pre><code class="json">
+    {
+        "dependencies": {
+            "chai": "^4.0.1",
+            "chai-shallow-deep-equal": "^1.4.6",
+            "istanbul": "^0.4.4",
+            "mocha": "^3.4.2",
+            "mocha-lcov-reporter": "^1.0.0",
+            "mocha-unfunk-reporter": "^0.4.0",
+            "nyc": "^11.0.2",
+        }
+    }
+            </code></pre>
+        </div>
+        <div class="fragment">
+            <h4>Jest</h4>
+            <pre><code class="json">
+    {
+        "dependencies": {
+            "jest": "^20.0.4"
+        }
+    }
+            </code></pre>
+        </div>
+    </section>
+    <section id="jest-before-and-after-sinon" class="stretch" data-menu-title="You might not need Sinon" data-markdown data-background-image="img/you-might-not-need-sinon.png" data-background-size="contain">
+        ### You might not need [sinon](http://sinonjs.org/)
+    </section>
+    <section id="jest-before-and-after-chai" class="stretch" data-menu-title="You might not need Chai" data-markdown data-background-image="img/you-might-not-need-chai.png" data-background-size="contain">
+        ### You might not need [chai](http://chaijs.com/)
+    </section>
 </section>
